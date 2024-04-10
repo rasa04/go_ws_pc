@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websockets with Go</title>
+</head>
+<body>
+    WebSocket
+    <script>
+        const socket = new WebSocket('ws://localhost:8080/websocket');
+
+        // Событие открытия соединения
+        socket.addEventListener('open', function (event) {
+            console.log('WebSocket соединение установлено');
+            // Отправляем сообщение на сервер
+            socket.send('Привет от клиента!');
+        });
+
+        // Событие получения сообщения
+        socket.addEventListener('message', function (event) {
+            console.log('Получено сообщение от сервера:', event.data);
+        });
+
+        // Событие закрытия соединения
+        socket.addEventListener('close', function (event) {
+            console.log('WebSocket соединение закрыто');
+        });
+    </script>
+</body>
+</html>
