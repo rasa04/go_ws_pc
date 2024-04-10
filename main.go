@@ -12,6 +12,7 @@ var upgrader = websocket.Upgrader {
 	WriteBufferSize: 1024,
 	CheckOrigin: func(r *http.Request) bool {
 		log.Println("Origin: " + r.Header.Get("Origin"))
+
         // Передавать true для отключения проверки origin
         return true
     },
